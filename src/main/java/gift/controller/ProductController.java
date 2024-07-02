@@ -71,7 +71,7 @@ public class ProductController {
     @DeleteMapping("/api/products/{id}")
     public String deleteOneProduct(@PathVariable("id") long id) {
         productjdbcRepository.deleteById(id);
-        return "redirect:/api/products";
+        return "index";
     }
 
     // 선택된 상품 삭제

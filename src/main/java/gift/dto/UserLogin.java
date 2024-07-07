@@ -1,21 +1,25 @@
 package gift.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 public class UserLogin {
 
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class Request{
+    public static class Request {
+
         private String email;
         private String password;
+
+        public Request(String email, String password) {
+            this.email = email;
+            this.password = password;
+        }
+
+        public String getEmail() {
+            return this.email;
+        }
+
+        public String getPassword() {
+            return this.password;
+        }
+
     }
 
     public static class Response {

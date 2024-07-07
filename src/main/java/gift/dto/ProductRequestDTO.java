@@ -4,17 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 public class ProductRequestDTO {
 
     @NotNull(message = "비울 수 없습니다")
@@ -29,6 +19,18 @@ public class ProductRequestDTO {
     @NotNull(message = "비울 수 없습니다")
     private String imageUrl;
 
+    public ProductRequestDTO(
+        @NotNull(message = "비울 수 없습니다") @Size(min = 0, max = 15, message = "길이는 최대 15자 입니다") @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-zA-Z0-9()\\[\\]+\\-&/_]*$", message = "허용되지 않는 특수 문자가 포함되어 있습니다.") String name,
+        @NotNull(message = "비울 수 없습니다") @Min(value = 0, message = "0 이상 이여야 합니다") int price,
+        @NotNull(message = "비울 수 없습니다") String imageUrl) {
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
+    public ProductRequestDTO() {
+    }
+
     public String getName() {
         return name;
     }
@@ -39,5 +41,10 @@ public class ProductRequestDTO {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String toString() {
+        return "ProductRequestDTO(name=" + this.getName() + ", price=" + this.getPrice()
+            + ", imageUrl=" + this.getImageUrl() + ")";
     }
 }

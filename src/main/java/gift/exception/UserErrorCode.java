@@ -12,7 +12,7 @@ public enum UserErrorCode {
 //    WEAK_PASSWORD("Password is too weak"),
     EMAIL_ALREADY_EXISTS("이미 존재하는 이메일입니다"),
     INVALID_TOKEN("유효하지 않거나 만료된 토큰입니다"),
-    CART_NOT_FOUND("Cart not found"),
+//    CART_NOT_FOUND("Cart not found"),
     INTERNAL_SERVER_ERROR("서버에 오류가 발생했습니다."),
     INVALID_REQUEST("잘못된 요청입니다.")
     ;

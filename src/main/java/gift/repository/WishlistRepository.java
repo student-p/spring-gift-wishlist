@@ -2,6 +2,7 @@ package gift.repository;
 
 import gift.dto.Wishlist;
 import gift.dto.Wishlist.Request;
+import gift.dto.Wishlist.Response;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -46,10 +47,7 @@ public class WishlistRepository {
         return new RowMapper<Wishlist.Response>() {
             @Override
             public Wishlist.Response mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return Wishlist.Response.builder()
-                    .productName(rs.getString("product_name"))
-                    .quantity(rs.getInt("quantity"))
-                    .build();
+                return new Response(rs.getString("product_name"), rs.getInt("quantity"));
             }
         };
     }

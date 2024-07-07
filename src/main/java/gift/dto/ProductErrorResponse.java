@@ -1,18 +1,30 @@
 package gift.dto;
 
 import gift.exception.ProductErrorCode;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class ProductErrorResponse {
+
     private ProductErrorCode errorCode;
     private String errorMessage;
+
+    public ProductErrorResponse(ProductErrorCode errorCode, String errorMessage) {
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+    }
+
+    public ProductErrorCode getErrorCode() {
+        return this.errorCode;
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage;
+    }
+
+    public void setErrorCode(ProductErrorCode errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 }
